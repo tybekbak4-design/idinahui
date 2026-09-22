@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Иди нахуй</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 50%,
+                    #2b0000 0%,
+                    #100000 40%,
+                    #050505 100%
+                );
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        /* КРУГИ НА ФОНЕ */
+
+        .circle {
+            position: absolute;
+
+            border-radius: 50%;
+            border: 1px solid rgba(255, 0, 0, 0.15);
+
+            animation: rotate 15s linear infinite;
+        }
+
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+        }
+
+        .circle:nth-child(2) {
+            width: 600px;
+            height: 600px;
+
+            animation-duration: 25s;
+        }
+
+        .circle:nth-child(3) {
+            width: 900px;
+            height: 900px;
+
+            animation-duration: 40s;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ОСНОВНОЙ КОНТЕНТ */
+
+        .container {
+            position: relative;
+            z-index: 10;
+
+            text-align: center;
+
+            padding: 40px;
+        }
+
+        .small-text {
+            font-size: 14px;
+
+            letter-spacing: 8px;
+
+            text-transform: uppercase;
+
+            color: #888;
+
+            margin-bottom: 25px;
+        }
+
+        /* ГЛАВНЫЙ ТЕКСТ */
+
+        h1 {
+            font-size: clamp(60px, 13vw, 180px);
+
+            font-weight: 900;
+
+            line-height: 0.85;
+
+            letter-spacing: -8px;
+
+            text-transform: uppercase;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #ff4444,
+                    #ff0000,
+                    #660000
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 50px rgba(255, 0, 0, 0.25);
+
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+
+                filter: brightness(1.3);
+            }
+        }
+
+        /* ПОДЗАГОЛОВОК */
+
+        .subtitle {
+            margin-top: 35px;
+
+            color: #777;
+
+            font-size: 15px;
+
+            letter-spacing: 3px;
+        }
+
+        /* КНОПКА */
+
+        button {
+            margin-top: 35px;
+
+            padding: 16px 35px;
+
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid #ff0000;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff0000;
+
+            box-shadow:
+                0 0 20px rgba(255, 0, 0, 0.5),
+                0 0 60px rgba(255, 0, 0, 0.25);
+
+            transform: scale(1.08);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* НИЖНИЙ ТЕКСТ */
+
+        .footer {
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 0;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: #333;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+        }
+
+        /* ЧАСТИЦЫ */
+
+        .particle {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            background: #ff0000;
+
+            border-radius: 50%;
+
+            opacity: 0.5;
+
+            animation: float 8s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.6;
+            }
+
+            80% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-10vh);
+
+                opacity: 0;
+            }
+        }
+
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 19vw;
+
+                letter-spacing: -3px;
+            }
+
+            .small-text {
+                font-size: 10px;
+
+                letter-spacing: 4px;
+            }
+
+            .subtitle {
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+            button {
+                padding: 14px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- КРУГИ -->
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+
+    <!-- ЧАСТИЦЫ -->
+
+    <div class="particle" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 15%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 35%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 45%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 55%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 65%; animation-delay: 6s;"></div>
+    <div class="particle" style="left: 75%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 85%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 95%; animation-delay: 1s;"></div>
+
+
+    <!-- ГЛАВНЫЙ КОНТЕНТ -->
+
+    <main class="container">
+
+        <div class="small-text">
+            Добро пожаловать
+        </div>
+
+        <h1>
+            ИДИ<br>
+            НАХУЙ
+        </h1>
+
+        <div class="subtitle">
+            Без лишних слов.
+        </div>
+
+        <button onclick="sayGoodbye()">
+            Нажми сюда
+        </button>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        © 2026 — Сайт с очень важным посланием
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let clicks = 0;
+
+        function sayGoodbye() {
+
+            clicks++;
+
+            if (clicks === 1) {
+
+                alert("Ты нажал 1 раз. Иди нахуй.");
+
+            }
+
+            else if (clicks === 2) {
+
+                alert("Ещё раз? Серьёзно?");
+
+            }
+
+            else if (clicks === 3) {
+
+                /*
+                 * ТРЕТИЙ КЛИК
+                 * РИКРОЛЛ
+                 */
+
+                window.location.href =
+                    "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
